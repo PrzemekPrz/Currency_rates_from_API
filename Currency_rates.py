@@ -11,6 +11,12 @@ def average_daily_exchange_rate():
     name = data['currency']
     result = (f'{name} - {currency}')
     print(result.upper())
+    collection = []
     for object in table:
-        print(f'{object["effectiveDate"]} - {round(object["mid"], 2)} PLN')
+        collection.append(object["mid"])
+        print(f'{object["effectiveDate"]} - {object["mid"]}')
+    ave = ((sum(collection)) / int(number))
+    print(f'The average of the {number} days is {round(ave, 4)} PLN')
+
+
 average_daily_exchange_rate()
