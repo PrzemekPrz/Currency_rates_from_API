@@ -1,5 +1,6 @@
 import requests
 import json
+import pandas as pd
 
 def average_daily_exchange_rate():
     currency = input("Enter of the currency short name: ")
@@ -18,5 +19,8 @@ def average_daily_exchange_rate():
     ave = ((sum(collection)) / int(number))
     print(f'The average of the {number} days is {round(ave, 4)} PLN')
 
+    #Save to excel (install openpyxl)
+    df = pd.DataFrame(table)
+    df.to_excel('./currency.xlsx')
 
 average_daily_exchange_rate()
